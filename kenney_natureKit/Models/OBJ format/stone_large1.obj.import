@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/stone_large1.obj-f85355d1816dca053b3560bd4554ad7d.mesh"
+
+[deps]
+
+files=[ "res://.import/stone_large1.obj-f85355d1816dca053b3560bd4554ad7d.mesh" ]
+
+source_file="res://kenney_natureKit/Models/OBJ format/stone_large1.obj"
+dest_files=[ "res://.import/stone_large1.obj-f85355d1816dca053b3560bd4554ad7d.mesh", "res://.import/stone_large1.obj-f85355d1816dca053b3560bd4554ad7d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

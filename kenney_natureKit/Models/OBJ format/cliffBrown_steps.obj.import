@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cliffBrown_steps.obj-b17bf9fa713e562a41179a7ca6d5917b.mesh"
+
+[deps]
+
+files=[ "res://.import/cliffBrown_steps.obj-b17bf9fa713e562a41179a7ca6d5917b.mesh" ]
+
+source_file="res://kenney_natureKit/Models/OBJ format/cliffBrown_steps.obj"
+dest_files=[ "res://.import/cliffBrown_steps.obj-b17bf9fa713e562a41179a7ca6d5917b.mesh", "res://.import/cliffBrown_steps.obj-b17bf9fa713e562a41179a7ca6d5917b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

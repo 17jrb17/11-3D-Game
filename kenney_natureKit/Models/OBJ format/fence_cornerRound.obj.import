@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/fence_cornerRound.obj-f0ab8cd47ea1d4090ff0dd7162bd125d.mesh"
+
+[deps]
+
+files=[ "res://.import/fence_cornerRound.obj-f0ab8cd47ea1d4090ff0dd7162bd125d.mesh" ]
+
+source_file="res://kenney_natureKit/Models/OBJ format/fence_cornerRound.obj"
+dest_files=[ "res://.import/fence_cornerRound.obj-f0ab8cd47ea1d4090ff0dd7162bd125d.mesh", "res://.import/fence_cornerRound.obj-f0ab8cd47ea1d4090ff0dd7162bd125d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

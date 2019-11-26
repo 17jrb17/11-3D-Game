@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://kenney_natureKit/Models/OBJ format/ground_dirt.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.54902, 0.396078, 0.247059, 1 )
+
+[node name="Ground Pit" type="CSGCombiner"]
+transform = Transform( 0.999987, 0.0049734, 0.000970906, -0.00496837, 0.999975, -0.00512266, -0.00099634, 0.00511778, 0.999986, 0, 0, 0 )
+use_collision = true
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -5, -1.86265e-09, 5 )
+use_collision = true
+mesh = ExtResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGMesh"]
+transform = Transform( 2.87314, 0.00233595, -6.93789e-05, 0.000292008, 1.319, 0.000382533, -6.93761e-05, 0.00306039, 2.93676, 5.03957, 1.65652, -4.98234 )
+operation = 2
+material = SubResource( 1 )

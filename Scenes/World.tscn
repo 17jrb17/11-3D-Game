@@ -1,0 +1,1936 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scenes/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/FPSCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Ground Pit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://kenney_natureKit/Models/OBJ format/grass_dense.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://kenney_natureKit/Models/OBJ format/bamboo.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://kenney_natureKit/Models/OBJ format/tent_smallOpen.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://kenney_natureKit/Models/OBJ format/campfire_small.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Cloud.tscn" type="PackedScene" id=11]
+[ext_resource path="res://particlePack_1.1/PNG (Transparent)/trace_01.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Palm Tree.tscn" type="PackedScene" id=13]
+[ext_resource path="res://instructions.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Helicopter Crash.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Thunder, Very Close, Rain, 01.wav" type="AudioStream" id=16]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+sky_horizon_color = Color( 0.290196, 0.235294, 0.235294, 1 )
+ground_bottom_color = Color( 0.164706, 0.219608, 0.172549, 1 )
+ground_horizon_color = Color( 0.454902, 0.364706, 0.290196, 1 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+fog_enabled = true
+fog_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+fog_sun_color = Color( 0.588235, 0.588235, 0.576471, 1 )
+fog_depth_begin = 0.1
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+params_blend_mode = 1
+params_cull_mode = 2
+params_billboard_mode = 2
+albedo_texture = ExtResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 30, 1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 90.0
+angular_velocity = 2.97315e-33
+
+[sub_resource type="PlaneMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 14 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 2, 0.5 )
+
+[node name="World" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88135, 0.340841, -0.232191 )
+script = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.999095, 2.3262e-08, -0.0425462, -0.0390423, 0.397401, 0.916814, 0.0169079, 0.917645, -0.397041, 4.14997, 37.3423, -17.1709 )
+light_color = Color( 0.141176, 0.0705882, 0.0705882, 1 )
+shadow_enabled = true
+
+[node name="FPSCharacter" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999299, 0, 0.0374496, 0, 1, 0, -0.0374496, 0, -0.999299, 29.6225, 1.20645, -23.1354 )
+
+[node name="Ground" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6052, -0.695219, 0.749185 )
+
+[node name="Ground8" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6791, -0.695219, -23.4819 )
+
+[node name="Ground9" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8823, -0.695219, -14.3555 )
+
+[node name="Ground10" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5057, -0.695219, -1.52215 )
+
+[node name="Ground11" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4572, -0.695219, -4.77291 )
+
+[node name="Ground6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92418, -0.695219, -11.3889 )
+
+[node name="Ground19" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.855, -0.695219, -18.9984 )
+
+[node name="Ground20" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.855, -0.695219, -9.66718 )
+
+[node name="Ground21" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80262, -0.695219, -6.68613 )
+
+[node name="Ground22" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80262, -0.695219, -1.4811 )
+
+[node name="Ground23" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80262, -0.695219, 10.7902 )
+
+[node name="Ground24" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5396, -0.695219, 8.26861 )
+
+[node name="Ground7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85425, -0.695219, -19.0564 )
+
+[node name="Ground12" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8738, -0.695219, -8.27823 )
+
+[node name="Ground13" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.976, -0.695219, 4.14945 )
+
+[node name="Ground14" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3793, -0.695219, 1.3286 )
+
+[node name="Ground15" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.487, -0.695219, 10.7432 )
+
+[node name="Ground32" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3934, -0.695219, 10.7432 )
+
+[node name="Ground16" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1365, -0.695219, 16.0951 )
+
+[node name="Ground17" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3672, -0.695219, -8.346 )
+
+[node name="Ground18" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3672, -0.695219, -14.3084 )
+
+[node name="Ground5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99694, -0.695219, -19.0506 )
+
+[node name="Ground2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715052, -0.695219, -9.20287 )
+
+[node name="Ground3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715052, -0.695219, 10.7257 )
+
+[node name="Ground25" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.552, -0.695219, 2.59749 )
+
+[node name="Ground26" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9565, -0.695219, 10.8812 )
+
+[node name="Ground27" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9565, -0.695219, 1.1027 )
+
+[node name="Ground28" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9565, -0.695219, -8.1951 )
+
+[node name="Ground29" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9565, -0.695219, -12.1715 )
+
+[node name="Ground30" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6178, -0.695219, -21.6361 )
+
+[node name="Ground31" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5602, -0.695219, -24.3811 )
+
+[node name="Ground4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.24024, -0.695219, 10.7257 )
+
+[node name="Ground Pit" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22046, -2.23557, -9.15902 )
+
+[node name="Ground Pit10" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68619, -2.23557, 6.4064 )
+
+[node name="Ground Pit4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3424, -2.23557, -16.5915 )
+
+[node name="Ground Pit5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09884, -2.23557, -21.0005 )
+
+[node name="Ground Pit6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0269, -2.23557, -5.7902 )
+
+[node name="Ground Pit9" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2826, -2.23557, -22.0694 )
+
+[node name="Ground Pit2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25141, -2.23557, 0.842443 )
+
+[node name="Ground Pit3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1021, -2.23557, 0.842443 )
+
+[node name="Ground Pit7" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5124, -2.23557, -7.22363 )
+
+[node name="Ground Pit8" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5124, -2.23557, 10.7898 )
+
+[node name="grass_dense" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.06159, 0.281846, -20.0689 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense2" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0791042, 0.281846, -18.2622 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense3" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.24361, 0.26507, -14.5381 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense4" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.17779, 0.281846, -12.4576 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense5" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.950924, 0.281846, -8.58731 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense6" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.9299, 0.281846, -13.4565 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense7" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.53766, 0.281846, -16.9403 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense8" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.33946, 0.281846, -6.85318 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense9" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.70077, 0.281846, -10.4908 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense10" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.11978, 0.281846, -10.9887 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense11" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.91177, 0.281846, -12.5869 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense18" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.464821, 0.281846, -11.138 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense19" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.28384, 0.281846, -15.2391 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense20" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.88698, 0.281846, -12.8212 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense21" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.88698, 0.281846, -10.8703 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense22" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.69865, 0.281846, -9.39676 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense23" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.13047, 0.281846, -8.34731 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense24" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.14768, 0.281846, -10.3558 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense25" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.14768, 0.281846, -14.8852 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense26" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.13464, 0.281846, -12.744 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense34" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.89551, 0.281846, -19.7962 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense35" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.54977, 0.281846, -17.266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense36" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.465, 0.281846, -15.2401 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense37" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.67399, 0.281846, -20.02 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense38" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.3211, 0.281846, -18.7235 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense39" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.217, 0.281846, -16.735 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense40" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.217, 0.281846, -13.9605 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense27" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.82402, 0.281846, -17.5086 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense28" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.11027, 0.281846, -19.8041 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense29" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.41646, 0.281846, -19.8041 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense30" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.04851, 0.281846, -17.1974 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense31" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.04851, 0.281846, -19.3492 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense32" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.63218, 0.281846, -17.3522 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense33" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.63218, 0.281846, -17.3522 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense41" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.4807, 0.281846, -21.0284 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense42" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.53818, 0.281846, -9.0068 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense43" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.16669, 0.281846, -7.89503 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense44" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.0062, 0.281846, -11.8697 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense45" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.10079, 0.281846, -21.8459 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense46" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.60735, 0.281846, -21.8459 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense47" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.72218, 0.281846, -21.8459 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense48" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.49881, 0.281846, -21.8459 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense49" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0553775, 0.281846, -21.8459 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense50" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.61082, 0.281846, -19.8119 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense51" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.67488, 0.281846, -22.1028 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense52" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.94891, 0.281846, -19.5585 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense53" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.50108, 0.281846, -17.4301 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense54" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.83691, 0.281846, -17.4301 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense55" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.7554, 0.281846, -15.537 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense56" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.66158, 0.281846, -14.8835 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense57" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.16689, 0.281846, -13.5599 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense58" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.0879, 0.281846, -13.5599 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense59" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.0879, 0.281846, -18.928 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense60" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.7433, 0.281846, -20.0208 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense61" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.8602, 0.281846, -16.5534 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense62" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.6622, 0.281846, -19.1057 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense63" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.6622, 0.281846, -21.5281 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense64" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.35575, 0.281846, -14.7262 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense65" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.420091, 0.281846, -17.3696 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense66" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.22563, 0.281846, -17.3696 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense67" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -10.883, 0.281846, -17.4721 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense68" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -7.89402, 0.281846, -13.1665 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense69" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.876216, 0.281846, -13.1665 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense70" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -3.96955, 0.281846, -10.5672 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense71" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -4.61599, 0.281846, -8.86644 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense74" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.28282, 0.281846, -8.86644 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense75" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.28282, 0.281846, -5.5824 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense76" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.60446, 0.281846, -5.5824 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense77" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -10.4822, 0.281846, -5.5824 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense78" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.5467, 0.281846, -5.5824 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense79" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -12.711, 0.281846, -9.72727 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense80" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.7192, 0.281846, -9.72727 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense81" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.7192, 0.281846, -5.58793 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense82" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.6622, 0.281846, -5.58793 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense83" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -23.7704, 0.281846, -5.58793 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense84" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -23.7704, 0.281846, -9.35066 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense85" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -23.7704, 0.281846, -12.9746 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense86" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -23.7704, 0.281846, -16.6209 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense87" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.641, 0.281846, -16.6209 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense88" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.641, 0.281846, -13.8196 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense89" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.641, 0.281846, -10.7442 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense90" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.641, 0.281846, -8.68976 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense91" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.309, 0.281846, -13.374 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense92" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.309, 0.281846, -13.374 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense93" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.3692, 0.281846, -13.374 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense94" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.3692, 0.281846, -17.0145 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense95" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.5907, 0.281846, -17.0879 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense96" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.5907, 0.281846, -20.7083 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense97" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.3864, 0.281846, -20.7083 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense98" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.3864, 0.281846, -23.8201 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense99" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.3706, 0.281846, -23.8201 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense100" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.3706, 0.281846, -26.4262 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense101" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -12.7818, 0.281846, -26.4262 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense102" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.4711, 0.281846, -26.4262 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense103" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.4711, 0.281846, -23.1077 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense104" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.67906, 0.281846, -21.6017 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense105" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -4.93363, 0.281846, -21.6017 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense106" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.19945, 0.281846, -8.36681 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense107" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.80004, 0.281846, -1.98379 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense108" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.44051, 0.281846, -1.98379 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense109" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.44051, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense110" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.39249, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense111" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.91917, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense112" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.6285, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense113" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.8855, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense114" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -21.5345, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense115" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -24.8798, 0.281846, 1.98129 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense116" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -24.8798, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense117" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -21.5337, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense118" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -18.7106, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense119" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.2741, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense120" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.61521, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense121" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.889327, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense122" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.23362, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense123" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 7.68223, 0.281846, -1.73258 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense124" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 7.68223, 0.281846, -5.94893 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense125" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 7.68223, 0.281846, 1.8763 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense126" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.74637, 0.281846, 1.8763 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense127" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.779225, 0.281846, 1.8763 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense128" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.779225, 0.281846, 5.40198 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense129" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.8601, 0.281846, 5.40198 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense130" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.38849, 0.281846, 5.40198 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense131" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.38849, 0.281846, 8.45239 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense132" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.244148, 0.281846, 8.45239 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense133" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -3.4985, 0.281846, 8.45239 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense134" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.29885, 0.281846, 8.45239 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense135" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.29885, 0.281846, 6.91872 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense136" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.47404, 0.281846, 6.91872 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense137" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.4846, 0.281846, 6.91872 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense139" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -21.0934, 0.281846, 6.91872 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense140" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -25.3519, 0.281846, 7.13107 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense141" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -25.3519, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense142" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -22.1287, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense143" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -18.3014, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense144" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.6757, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense145" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.923, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense146" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.23757, 0.281846, 4.73175 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense147" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.23757, 0.281846, 9.51918 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense148" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.0349, 0.281846, 9.51918 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense149" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.0819, 0.281846, 13.0197 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense150" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.3693, 0.281846, 13.0197 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense151" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.8127, 0.281846, 13.0197 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense152" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -21.746, 0.281846, 13.0197 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense153" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -24.172, 0.281846, 13.0197 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense154" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -24.172, 0.281846, 10.3461 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense155" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.7417, 0.281846, 10.3461 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense156" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -18.7851, 0.281846, 10.3461 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense157" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.6626, 0.281846, 10.3461 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense158" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.6626, 0.281846, 16.2785 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense159" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -15.0381, 0.281846, 16.2785 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense160" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.6148, 0.281846, 16.2785 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense161" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -20.6148, 0.281846, 19.0723 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense162" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -17.7065, 0.281846, 19.0723 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense163" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -15.1568, 0.281846, 19.0723 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense164" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.23705, 0.281846, 13.4026 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense165" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.23705, 0.281846, 11.3698 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense166" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.44868, 0.281846, 11.3698 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense167" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.44868, 0.281846, 13.624 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense168" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -1.90256, 0.281846, 13.624 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense169" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 1.23504, 0.281846, 13.624 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense170" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 1.23504, 0.281846, 10.8254 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense171" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -1.90391, 0.281846, 10.8254 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense172" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.9996, 0.281846, 10.8254 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense173" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.9996, 0.281846, 13.8473 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense174" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.77766, 0.281846, 13.8473 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense175" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 10.0404, 0.281846, 13.8473 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense176" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 12.9466, 0.281846, 13.8473 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense177" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 12.9466, 0.281846, 10.5387 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense178" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.10706, 0.281846, 10.5387 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense179" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.28755, 0.281846, 10.5387 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense180" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.28755, 0.281846, 7.60578 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense181" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 8.93624, 0.281846, 7.60578 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense182" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 11.6073, 0.281846, 7.60578 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense183" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 13.6982, 0.281846, 7.60578 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense184" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4895, 0.281846, 7.60578 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense185" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4895, 0.281846, 10.6387 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense186" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4895, 0.281846, 11.5231 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense187" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 18.1822, 0.281846, 11.5231 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense188" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 18.1822, 0.281846, 13.8065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense189" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 20.982, 0.281846, 13.8065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense190" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.2339, 0.281846, 13.8065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense191" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.2339, 0.281846, 10.4108 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense192" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 20.8183, 0.281846, 10.4108 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense193" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 20.8183, 0.281846, 7.04199 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense194" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.0646, 0.281846, 7.04199 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense195" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.0646, 0.281846, 4.15854 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense196" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.0646, 0.281846, 1.46203 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense197" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.0646, 0.281846, -1.94196 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense198" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.0646, 0.281846, -5.37529 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense199" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.3918, 0.281846, -5.37529 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense200" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.3918, 0.281846, -1.81128 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense201" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.3918, 0.281846, 1.03438 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense202" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.3918, 0.281846, 3.43065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense203" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 18.5008, 0.281846, 3.43065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense204" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 15.6852, 0.281846, 3.43065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense205" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 13.1733, 0.281846, 3.43065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense206" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.97552, 0.281846, 3.43065 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense207" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.97552, 0.281846, -0.495897 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense208" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 12.4866, 0.281846, -0.495897 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense209" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 14.7973, 0.281846, -0.495897 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense210" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 17.1793, 0.281846, -0.495897 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense211" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 19.4994, 0.281846, -0.495897 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense212" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 19.4994, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense213" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 17.8545, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense214" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 13.8648, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense215" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 11.6838, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense216" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 8.4232, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense217" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.83938, 0.281846, -4.48878 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense218" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.83938, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense219" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.79916, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense220" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 13.6918, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense221" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 17.1146, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense222" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.5296, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense223" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.4396, 0.281846, -10.639 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense225" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 20.9332, 0.281846, -10.639 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense226" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 17.3653, 0.281846, -10.639 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense227" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 13.4612, 0.281846, -10.8038 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense228" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 14.7171, 0.281846, -14.2652 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense229" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 18.0356, 0.281846, -14.2652 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense230" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.6113, 0.281846, -14.2652 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense231" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.3804, 0.281846, -14.2652 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense232" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.3804, 0.281846, -17.7266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense233" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 22.8277, 0.281846, -17.7266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense234" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 18.0228, 0.281846, -17.7266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense235" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 15.6562, 0.281846, -17.7266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense236" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 14.278, 0.281846, -17.7266 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense237" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 14.278, 0.281846, -21.2585 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense238" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 17.6928, 0.281846, -21.2585 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense239" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 20.6384, 0.281846, -21.2585 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense240" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 25.3333, 0.281846, -21.2585 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense241" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 28.3224, 0.281846, -18.8008 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense242" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 28.3224, 0.281846, -21.3699 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense243" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 28.3224, 0.281846, -24.1313 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense244" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 27.3574, 0.281846, -26.7022 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense245" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.639, 0.281846, -26.7022 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense246" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.5611, 0.281846, -27.0363 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense247" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 21.5611, 0.281846, -23.6222 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense248" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.6146, 0.281846, -23.6222 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense249" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 24.6146, 0.281846, -20.5236 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense250" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 10.1615, 0.281846, -20.5236 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense251" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 10.1615, 0.281846, -16.757 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense252" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.13354, 0.281846, -21.4835 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense253" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 10.4505, 0.281846, -21.4835 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense254" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.59895, 0.281846, -17.0805 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense255" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.59895, 0.281846, -13.3937 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense256" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.59895, 0.281846, -11.3482 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense257" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.66654, 0.281846, -11.3482 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense258" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.66654, 0.281846, -17.0041 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense259" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 10.9113, 0.281846, -17.0041 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense260" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 2.50657, 0.281846, -21.0095 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense224" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 23.979, 0.281846, -7.49747 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense138" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.804, 0.281846, 6.91872 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense72" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -7.97615, 0.281846, -10.5672 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense73" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.68211, 0.281846, -9.37655 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense12" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.4807, 0.281846, -15.0728 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense17" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.59775, 0.281846, -15.9856 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense16" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.4506, 0.281846, -12.824 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense13" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.4143, 0.281846, -14.4559 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense14" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.2116, 0.281846, -12.9263 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="grass_dense15" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.0473, 0.281846, -10.4068 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="bamboo" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -8.36588, -0.201338, -4.55549 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo2" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -8.36588, -0.201338, -11.9855 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo3" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 1.46493, -0.201338, -11.9855 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo4" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 8.22414, -0.201338, -4.37101 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo5" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 8.22414, -0.201338, -16.9087 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo6" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -2.3335, -0.201338, -16.9087 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo7" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -5.3702, -0.201338, -22.4999 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo8" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -5.3702, -0.201338, 6.76893 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo9" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 5.09593, -0.201338, 8.91343 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo10" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 19.3167, -0.201338, 1.57246 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo11" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -20.9893, -0.201338, 1.57246 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="bamboo12" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -20.0059, -0.155691, -12.3129 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="tent_smallOpen" type="MeshInstance" parent="."]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 27.149, 0.194983, -27.3443 )
+mesh = ExtResource( 7 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="campfire_small" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 27.2085, 0.260628, -22.5581 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
+[node name="Fire" parent="campfire_small" instance=ExtResource( 9 )]
+
+[node name="Smoke" parent="campfire_small" instance=ExtResource( 10 )]
+
+[node name="Cloud" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 22.9879, 0 )
+
+[node name="Cloud2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 6.18493, 22.9879, 10.1188 )
+
+[node name="Cloud3" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 10.5965, 22.9879, -8.78254 )
+
+[node name="Cloud4" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 12.7652, 22.9879, 0.444746 )
+
+[node name="Cloud5" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 19.7863, 22.9879, 8.19275 )
+
+[node name="Cloud6" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 19.7863, 22.9879, -6.18079 )
+
+[node name="Cloud7" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 19.7863, 22.9879, -0.603005 )
+
+[node name="Cloud8" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.22068, 22.9879, 8.02549 )
+
+[node name="Cloud9" parent="." instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.22068, 22.9879, -11.1668 )
+
+[node name="Cloud10" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1.19859, 0, 2.75016, 0, 3, 0, -2.75016, 0, 1.19859, -14.5109, 22.9879, -3.13538 )
+
+[node name="Cloud11" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1.19859, 0, 2.75016, 0, 3, 0, -2.75016, 0, 1.19859, -7.60883, 22.9879, -3.13538 )
+
+[node name="Cloud12" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 3.58252, 22.9879, -12.1197 )
+
+[node name="Cloud13" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 21.2461, 22.9879, -16.1952 )
+
+[node name="Cloud14" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 21.2461, 22.9879, -23.2184 )
+
+[node name="Cloud15" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 9.59498, 22.9879, -23.2184 )
+
+[node name="Cloud16" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, -2.73075, 22.9879, -23.2184 )
+
+[node name="Cloud17" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, -10.5135, 22.9879, -16.3657 )
+
+[node name="Cloud18" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 9.17828, 22.9879, -16.3657 )
+
+[node name="Cloud19" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 9.17828, 22.9879, 14.6469 )
+
+[node name="Cloud22" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, -9.9649, 22.9879, 14.6469 )
+
+[node name="Cloud23" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 0.888733, 22.9879, 20.1919 )
+
+[node name="Cloud24" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, -16.7851, 22.9879, 20.1919 )
+
+[node name="Cloud20" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 18.6824, 22.9879, 14.6469 )
+
+[node name="Cloud21" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.63234, 0, -1.43903, 0, 3, 0, 1.43903, 0, 2.63234, 18.6824, 22.9879, 14.6469 )
+
+[node name="Rain" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 12.4878, 4.14427 )
+material_override = SubResource( 3 )
+amount = 250
+visibility_aabb = AABB( -60.9962, -84.0824, -17.5279, 121.128, 148.444, 42.7902 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="Palm Tree" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.559, 0, 0 )
+
+[node name="Palm Tree2" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3655, 0, 4.19602 )
+
+[node name="Palm Tree3" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4123, 0, 4.19602 )
+
+[node name="Palm Tree4" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4123, 0, -1.48282 )
+
+[node name="Palm Tree5" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4123, 0, -6.79732 )
+
+[node name="Palm Tree6" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5405, 0, -6.79732 )
+
+[node name="Palm Tree7" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5405, 0, -11.2695 )
+
+[node name="Palm Tree8" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7327, 0, -11.2695 )
+
+[node name="Palm Tree9" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.29, 0, -17.4167 )
+
+[node name="Palm Tree10" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1384, 0, -15.4654 )
+
+[node name="Palm Tree11" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1384, 0, -10.2927 )
+
+[node name="Palm Tree12" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1384, 0, -4.88719 )
+
+[node name="Palm Tree13" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1384, 0, 1.15472 )
+
+[node name="Palm Tree14" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2762, 0, 1.15472 )
+
+[node name="Palm Tree15" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2762, 0, -3.36479 )
+
+[node name="Palm Tree16" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2762, 0, -12.5353 )
+
+[node name="Palm Tree17" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2762, 0, -9.20227 )
+
+[node name="Palm Tree72" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72333, 0, -0.36571 )
+
+[node name="Palm Tree73" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.046, 0, 5.4136 )
+
+[node name="Palm Tree74" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.046, 0, -3.99968 )
+
+[node name="Palm Tree75" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66143, 0, 5.36515 )
+
+[node name="Palm Tree76" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.98759, 0, 10.3111 )
+
+[node name="Palm Tree77" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5802, 0, 12.1664 )
+
+[node name="Palm Tree18" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2762, 0, 8.31684 )
+
+[node name="Palm Tree19" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4275, 0, 8.31684 )
+
+[node name="Palm Tree20" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4275, 0, -22.4349 )
+
+[node name="Palm Tree21" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0518, 0, -25.0829 )
+
+[node name="Palm Tree22" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6725, 0, -16.7294 )
+
+[node name="Palm Tree23" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0064, 0, -19.3674 )
+
+[node name="Palm Tree24" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3796, 0, -17.9262 )
+
+[node name="Palm Tree25" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.69511, 0, -22.7887 )
+
+[node name="Palm Tree26" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.306, 0, -22.7887 )
+
+[node name="Palm Tree27" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29579, 0, -19.1226 )
+
+[node name="Palm Tree28" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732692, 0, -22.7307 )
+
+[node name="Palm Tree29" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48185, 0, -22.7307 )
+
+[node name="Palm Tree30" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.439951, 0, -16.1353 )
+
+[node name="Palm Tree31" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52447, 0, -19.5451 )
+
+[node name="Palm Tree32" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52447, 0, -12.7133 )
+
+[node name="Palm Tree33" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43776, 0, -9.68651 )
+
+[node name="Palm Tree34" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03954, 0, -9.68651 )
+
+[node name="Palm Tree35" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03954, 0, -5.91684 )
+
+[node name="Palm Tree36" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.645624, 0, -3.20885 )
+
+[node name="Palm Tree37" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1012, 0, -3.20885 )
+
+[node name="Palm Tree38" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8147, 0, -3.20885 )
+
+[node name="Palm Tree39" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20012, 0, 3.54516 )
+
+[node name="Palm Tree40" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20012, 0, 8.9935 )
+
+[node name="Palm Tree41" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87414, 0, 8.9935 )
+
+[node name="Palm Tree42" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87414, 0, 14.7711 )
+
+[node name="Palm Tree43" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4594, 0, 14.7711 )
+
+[node name="Palm Tree44" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5587, 0, 14.7711 )
+
+[node name="Palm Tree45" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7526, 0, 15.1732 )
+
+[node name="Palm Tree46" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4958, 0, 10.1497 )
+
+[node name="Palm Tree47" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.240281, 0, 13.4373 )
+
+[node name="Palm Tree48" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10039, 0, 13.4373 )
+
+[node name="Palm Tree49" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4113, 0, 13.4373 )
+
+[node name="Palm Tree50" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.13861, 0, 6.49725 )
+
+[node name="Palm Tree51" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9987, 0, 6.49725 )
+
+[node name="Palm Tree52" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2564, 0, 14.5571 )
+
+[node name="Palm Tree53" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2564, 0, 0.558394 )
+
+[node name="Palm Tree54" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6769, 0, -5.57166 )
+
+[node name="Palm Tree55" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6028, 0, -12.9462 )
+
+[node name="Palm Tree56" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6028, 0, -21.5613 )
+
+[node name="Palm Tree57" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2987, 0, -21.5613 )
+
+[node name="Palm Tree58" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5246, 0, -25.7149 )
+
+[node name="Palm Tree59" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5778, 0, -25.7149 )
+
+[node name="Palm Tree60" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.135, 0, -17.2673 )
+
+[node name="Palm Tree61" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2713, 0, -14.6921 )
+
+[node name="Palm Tree62" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.58046, 0, -18.8836 )
+
+[node name="Palm Tree63" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4397, 0, -10.2163 )
+
+[node name="Palm Tree64" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6463, 0, -10.2163 )
+
+[node name="Palm Tree65" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7305, 0, -5.06224 )
+
+[node name="Palm Tree66" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7335, 0, -5.06224 )
+
+[node name="Palm Tree67" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7567, 0, 1.67242 )
+
+[node name="Palm Tree68" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8257, 0, 1.67242 )
+
+[node name="Palm Tree78" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6482, 0, 0.329763 )
+
+[node name="Palm Tree79" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6482, 0, 7.42956 )
+
+[node name="Palm Tree80" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6458, 0, 9.21175 )
+
+[node name="Palm Tree81" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.866, 0, 13.1891 )
+
+[node name="Palm Tree82" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2129, 0, -2.34822 )
+
+[node name="Palm Tree83" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2129, 0, -8.20193 )
+
+[node name="Palm Tree84" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3489, 0, -13.5805 )
+
+[node name="Palm Tree85" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4501, 0, -13.5805 )
+
+[node name="Palm Tree86" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2975, 0, -16.7191 )
+
+[node name="Palm Tree87" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4384, 0, -11.181 )
+
+[node name="Palm Tree88" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4384, 0, -4.98638 )
+
+[node name="Palm Tree89" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8957, -0.0644135, -7.14412 )
+
+[node name="Palm Tree69" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8257, 0, 7.65091 )
+
+[node name="Palm Tree70" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9176, 0, 10.8552 )
+
+[node name="Palm Tree71" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9176, 0, 15.4467 )
+
+[node name="Instructions" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29.0691, 1.92342, -20.0787 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Helicopter Crash" parent="." instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.2555, -0.692498, 1.53544 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.550639, 15.3586, 0 )
+stream = ExtResource( 16 )
+unit_db = 11.546
+max_db = 6.0
+autoplay = true

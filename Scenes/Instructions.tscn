@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Instructions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 102.79
+margin_top = 51.9079
+margin_right = -66.21
+margin_bottom = -128.092
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Find the crashed helicopter. Watch out for traps put out by the enemy."
+align = 1

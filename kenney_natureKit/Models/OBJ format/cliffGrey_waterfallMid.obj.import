@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cliffGrey_waterfallMid.obj-30ad77666ac60721eae5b61e78c6efe8.mesh"
+
+[deps]
+
+files=[ "res://.import/cliffGrey_waterfallMid.obj-30ad77666ac60721eae5b61e78c6efe8.mesh" ]
+
+source_file="res://kenney_natureKit/Models/OBJ format/cliffGrey_waterfallMid.obj"
+dest_files=[ "res://.import/cliffGrey_waterfallMid.obj-30ad77666ac60721eae5b61e78c6efe8.mesh", "res://.import/cliffGrey_waterfallMid.obj-30ad77666ac60721eae5b61e78c6efe8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

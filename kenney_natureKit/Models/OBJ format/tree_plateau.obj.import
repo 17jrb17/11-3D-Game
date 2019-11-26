@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tree_plateau.obj-f54ce2e05f70536548c610fc6c79212b.mesh"
+
+[deps]
+
+files=[ "res://.import/tree_plateau.obj-f54ce2e05f70536548c610fc6c79212b.mesh" ]
+
+source_file="res://kenney_natureKit/Models/OBJ format/tree_plateau.obj"
+dest_files=[ "res://.import/tree_plateau.obj-f54ce2e05f70536548c610fc6c79212b.mesh", "res://.import/tree_plateau.obj-f54ce2e05f70536548c610fc6c79212b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
